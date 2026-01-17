@@ -315,16 +315,29 @@ class ExamList extends HookConsumerWidget {
                   physics: const AlwaysScrollableScrollPhysics(),
                   children: widgets)));
 
-  Widget _buildGradeLayout(BuildContext context, WidgetRef ref,
-      List<ExamScore> examScores, String? semesterId,
-      {bool isFallback = false}) =>
-      _buildRefreshableListView(context, ref, _getListWidgetsGrade(
-          context, ref, examScores, isFallback: isFallback),);
+  Widget _buildGradeLayout(
+    BuildContext context,
+    WidgetRef ref,
+    List<ExamScore> examScores,
+    String? semesterId, {
+    bool isFallback = false,
+  }) => _buildRefreshableListView(
+    context,
+    ref,
+    _getListWidgetsGrade(context, ref, examScores, isFallback: isFallback),
+  );
 
-  Widget _buildHybridLayout(BuildContext context, WidgetRef ref,
-      List<Exam> exams, List<ExamScore> scores, String? semesterId) =>
-      _buildRefreshableListView(
-          context, ref, _getListWidgetsHybrid(context, ref, exams, scores));
+  Widget _buildHybridLayout(
+    BuildContext context,
+    WidgetRef ref,
+    List<Exam> exams,
+    List<ExamScore> scores,
+    String? semesterId,
+  ) => _buildRefreshableListView(
+    context,
+    ref,
+    _getListWidgetsHybrid(context, ref, exams, scores),
+  );
 
   Widget _buildGpaCard(BuildContext context, WidgetRef ref) {
     final gpaList = ref.watch(gpaListProvider);
